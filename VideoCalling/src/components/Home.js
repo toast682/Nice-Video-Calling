@@ -1,12 +1,19 @@
 import React from "react";
+import Box from "@material-ui/core/Box";
+import Preview from "./Preview";
+import User from "./User"
+import io from "socket.io-client";
+
 
 function Home() {
+    const socket = io('http://localhost:5000/');
+    socket.emit('join-home');
     return (
         <div>
-            <h1>Welcome!</h1>
-            <p>Made by Amogh Joshi and Andrew Han</p>
+            <Preview />
+            <User />
         </div>
-    );
-}
+    )
+};
 
 export default Home;
